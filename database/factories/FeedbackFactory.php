@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Brand;
 use App\Models\Feedback;
+use App\Models\SocialPlatform;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FeedbackFactory extends Factory
@@ -22,6 +24,8 @@ class FeedbackFactory extends Factory
     public function definition()
     {
         return [
+            'platform_id' => SocialPlatform::all()->random()->id,
+            'brand_id'  => Brand::all()->random()->id,
             'comment' => $this->faker->realText($maxNbChars = 100)
         ];
     }
