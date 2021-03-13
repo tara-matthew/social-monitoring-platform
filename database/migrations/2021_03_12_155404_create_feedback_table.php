@@ -15,12 +15,12 @@ class CreateFeedbackTable extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('platform_id');
+            $table->unsignedBigInteger('social_platform_id');
             $table->unsignedBigInteger('brand_id');
             $table->text('comment');
-            $table->foreign('platform_id')->references('id')->on('social_platforms');
+            $table->foreign('social_platform_id')->references('id')->on('social_platforms');
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->unique(['platform_id', 'brand_id']);
+            $table->unique(['social_platform_id', 'brand_id']);
             $table->timestamps();
         });
     }

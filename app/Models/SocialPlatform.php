@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class SocialPlatform extends Model
 {
     use HasFactory;
+
+    public function feedback()
+    {
+        return $this->hasMany(Feedback::class);
+    }
 }

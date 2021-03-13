@@ -24,7 +24,7 @@ class FeedbackFactory extends Factory
     public function definition()
     {
         return [
-            'platform_id' => SocialPlatform::all()->random()->id,
+            'social_platform_id' => SocialPlatform::all()->random()->id,
             'brand_id'  => Brand::all()->random()->id,
             'comment' => $this->faker->realText($maxNbChars = 100)
         ];
