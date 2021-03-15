@@ -15,8 +15,8 @@ class CreateFeedbackTable extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('social_platform_id');
-            $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('social_platform_id')->nullable();
+            $table->unsignedBigInteger('brand_id')->nullable();
             $table->text('comment');
             $table->foreign('social_platform_id')->references('id')->on('social_platforms');
             $table->foreign('brand_id')->references('id')->on('brands');
