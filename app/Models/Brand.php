@@ -18,4 +18,10 @@ class Brand extends Model
     {
         return $this->hasOne(Tenant::class);
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
 }
