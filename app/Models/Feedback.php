@@ -9,6 +9,12 @@ class Feedback extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'comment',
+        'social_platform_id',
+        'brand_id'
+    ];
+
     public function socialPlatform()
     {
         return $this->belongsTo(SocialPlatform::class);
