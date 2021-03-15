@@ -21,6 +21,13 @@
     import Welcome from '@/Jetstream/Welcome'
 
     export default {
+        mounted() {
+            window.axios.get('/api/feedback').then(response => {
+                let feedback = response.data;
+                console.log(feedback);
+            })
+
+        },
         components: {
             AppLayout,
             Welcome,
