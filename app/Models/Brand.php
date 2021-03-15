@@ -13,4 +13,9 @@ class Brand extends Model
     {
         return $this->hasMany(Feedback::class);
     }
+
+    public function tenant()
+    {
+        return $this->hasOne(Tenant::class);
+    }
 }
