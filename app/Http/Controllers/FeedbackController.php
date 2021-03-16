@@ -31,18 +31,26 @@ class FeedbackController extends Controller
 
     public function getSentiment()
     {
+        $currentUser = User::findOrFail(1);
+        $currentBrand = $currentUser->brand;
+        $currentBrandSentiments = $currentBrand->sentiments;
+        $scores = [];
+        foreach ($currentBrandSentiments as $sentiment) {
+            $scores[] = $sentiment['score'];
+        }
+
         return
            [ 'labels' =>
                [
-                   '15/03/21', '22/03/2021', '27/03/2021', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+                   '15/03/21', '22/03/2021', '27/03/2021', '03/04/2021', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
                ],
            'datasets' =>
                 [
                     [
-                        'label' => 'Tesco',
+                        'label' => 'Dibbert-Morissette',
                         'fill' => false,
                         'borderColor' => '#f87979',
-                        'data' => [0, 25, 0, 50, 25, 75, 100, 80, 40, 20, 12, 11]
+                        'data' => $scores
                     ]
                 ]
            ];
