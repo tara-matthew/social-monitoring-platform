@@ -11,9 +11,16 @@
                 labels: ['15/03/21', '22/03/2021', '27/03/2021', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                 datasets: [
                     {
-                        label: 'Sentiment Trend',
-                        backgroundColor: '#f87979',
+                        label: 'Tesco',
+                        fill: false,
+                        borderColor: '#f87979',
                         data: [0, 25, 0, 50, 25, 75, 100, 80, 40, 20, 12, 11]
+                    },
+                    {
+                        label: 'Aldi',
+                        fill: false,
+                        borderColor: 'blue',
+                        data: [100, 0, 25, 50, 100, 75, 100, 80, 40, 20, 12, 11]
                     }
                 ]
             })
