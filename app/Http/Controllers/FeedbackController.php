@@ -28,6 +28,25 @@ class FeedbackController extends Controller
         //TODO make a competitors table with a relationship - then can retrieve a brand's competitors and display this feedback too
         return $currentBrandFeedback;
     }
+
+    public function getSentiment()
+    {
+        return
+           [ 'labels' =>
+               [
+                   '15/03/21', '22/03/2021', '27/03/2021', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+               ],
+           'datasets' =>
+                [
+                    [
+                        'label' => 'Tesco',
+                        'fill' => false,
+                        'borderColor' => '#f87979',
+                        'data' => [0, 25, 0, 50, 25, 75, 100, 80, 40, 20, 12, 11]
+                    ]
+                ]
+           ];
+    }
 //    public function index()
 //    {
 //        $currentUser = Auth::user();

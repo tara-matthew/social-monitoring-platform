@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/js/components/Index';
 import Chart from '@/js/components/SentimentChart';
+import ChartContainer from "@/js/components/ChartContainer";
 
 export default createRouter({
     history: createWebHistory(),
@@ -14,6 +15,11 @@ export default createRouter({
             path: '/chart',
             name: 'chart',
             component: Chart
+        },
+        {
+            path: '/chart-container',
+            name: 'chart-container',
+            component: ChartContainer
         }
     ]
 })
