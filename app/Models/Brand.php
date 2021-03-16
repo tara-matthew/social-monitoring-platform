@@ -24,4 +24,9 @@ class Brand extends Model
         return $this->hasMany(User::class);
     }
 
+    public function sentiments()
+    {
+        return $this->belongsToMany(Sentiment::class)->withTimestamps();
+    }
+
 }
