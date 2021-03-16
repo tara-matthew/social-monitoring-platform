@@ -10,8 +10,10 @@
         </thead>
         <tbody>
         <tr v-for="(row) in filteredRows">
-            <td>{{ row.brand_id}}</td>
-            <td>{{ row.comment }}</td>
+<!--            <tr v-for="(inner) in row">-->
+                <td>{{ row.brandName}}</td>
+                <td>{{ row.comment }}</td>
+<!--            </tr>-->
         </tr>
         </tbody>
     </table>
@@ -22,22 +24,23 @@
         data() {
             return {
                 feedback: [],
-                filter: 4
+                filter: [1,2,3,4,5,6],
+                filter2: 2
             }
         },
         computed: {
           filteredRows() {
               return this.feedback.filter(row => {
-                  return row.brand_id === this.filter;
-              })
+                  return row.brand_id === this.filter[0] || row.brand_id === this.filter[1];
+              });
             }
-
         },
         mounted() {
             window.axios.get('/api/feedback').then(response => {
                 this.feedback = response.data;
                 this.feedback = [].concat.apply([], this.feedback);
-            })
+            });
         }
     }
 </script>
+

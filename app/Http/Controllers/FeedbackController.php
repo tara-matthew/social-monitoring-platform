@@ -15,8 +15,13 @@ class FeedbackController extends Controller
         //TODO get the currently authenticated user rather than hardcoding
         $currentUser = User::findOrFail(1);
         $allBrands = Brand::all();
-        foreach ($allBrands as $brand) {
+        $currentBrandFeedback = [];
+        foreach ($allBrands as $key => $brand) {
             $currentBrandFeedback[] = $brand->feedback;
+            foreach ($currentBrandFeedback[$key] as $keys) {
+                $keys['brandName'] = $brand->name;
+            }
+//            $currentBrandFeedback[$key]['sentiment'] = $brand->sentiments;
         }
 
 //        $currentBrandFeedback = $currentUser->brand->feedback;
